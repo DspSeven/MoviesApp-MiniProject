@@ -1,39 +1,28 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
-import SignInForm from './components/signInFrom'
+import Home from './components/Home'
+import NotFound from './components/NotFound'
+import Login from './components/Login'
+import Account from './components/Account'
+import Search from './components/Search'
+import Popular from './components/Popular'
+import MovieDetailsView from './components/MovieDetailsView'
 
-import HomePage from './components/homePage'
-
-import Popular from './components/popularPage'
-
-import AccountDetailsPage from './components/AccountDetailsPage'
-
-import SearchBarPage from './components/SearchBarPage'
-
-import MovieDetails from './components/movieDetailsPage'
-
-import ProtectedRoute from './components/protectedRoute'
-
-import NotFound from './components/notfound'
+import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
 
 const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/signin" component={SignInForm} />
-      <ProtectedRoute exact path="/" component={HomePage} />
-      <ProtectedRoute exact path="/popular" component={Popular} />
-      <ProtectedRoute
-        exact
-        path="/account-details"
-        component={AccountDetailsPage}
-      />
-      <ProtectedRoute exact path="/search" component={SearchBarPage} />
-      <ProtectedRoute exact path="/specific/:id" component={MovieDetails} />
-      <Route component={NotFound} />
-    </Switch>
-  </BrowserRouter>
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/popular" component={Popular} />
+    <ProtectedRoute exact path="/search" component={Search} />
+    <ProtectedRoute exact path="/account" component={Account} />
+    <ProtectedRoute exact path="/movies/:id" component={MovieDetailsView} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="not-found" />
+  </Switch>
 )
 
 export default App
