@@ -24,7 +24,8 @@ class Search extends Component {
     searchValue: '',
   }
 
-  getSearchMoviesData = async searchValue => {
+  getSearchMoviesData = async () => {
+    const {searchValue} = this.state
     this.setState({renderStatus: renderConstraints.loading})
     const jwtToken = Cookies.get('jwt_token')
     const searchApi = `https://apis.ccbp.in/movies-app/movies-search?search=${searchValue}`
@@ -83,11 +84,15 @@ class Search extends Component {
 
   renderLoaderView = () => <Loading />
 
-  tryAgainSearchData = () => {
+  onClickRetry = () => {
     this.getSearchMoviesData()
   }
 
-  renderFailureView = () => <FailureView tryAgain={this.tryAgainSearchData} />
+  searchInput = text => {
+    this.setState({searchValue: text}, this.getSearchMoviesData)
+  }
+
+  renderFailureView = () => <FailureView onClickRetry={this.onClickRetry} />
 
   renderSwitchView = () => {
     const {renderStatus} = this.state
@@ -106,10 +111,7 @@ class Search extends Component {
   render() {
     return (
       <div className="bg-color">
-        <Header
-          getSearchMoviesData={this.getSearchMoviesData}
-          searchRoute={searchRoute}
-        />
+        <Header searchInput={this.searchInput} searchRoute={searchRoute} />
         <div className="search-container">{this.renderSwitchView()}</div>
       </div>
     )
