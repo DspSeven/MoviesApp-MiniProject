@@ -53,7 +53,7 @@ class TrendingNow extends Component {
   }
 
   onClickRetry = () => {
-    this.getOriginalsMovies()
+    this.getTrendingMovies()
   }
 
   renderFailureView = () => <FailureView onClickRetry={this.onClickRetry} />
