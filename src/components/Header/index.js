@@ -23,10 +23,10 @@ class Header extends Component {
   }
 
   onSearch = () => {
-    const {getSearchMoviesData} = this.props
+    const {searchInput} = this.props
     const {searchValue} = this.state
     if (searchValue !== '') {
-      getSearchMoviesData(searchValue)
+      searchInput(searchValue)
     }
   }
 
