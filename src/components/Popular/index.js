@@ -55,13 +55,11 @@ class Popular extends Component {
   renderSuccessView = () => {
     const {popularMovieList} = this.state
     return (
-      <>
-        <ul className="popular-list">
-          {popularMovieList.map(eachMovie => (
-            <MovieDetailsLink movieDetails={eachMovie} key={eachMovie.id} />
-          ))}
-        </ul>
-      </>
+      <ul className="popular-list">
+        {popularMovieList.map(eachMovie => (
+          <MovieDetailsLink movieDetails={eachMovie} key={eachMovie.id} />
+        ))}
+      </ul>
     )
   }
 
