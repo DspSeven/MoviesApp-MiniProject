@@ -31,7 +31,7 @@ class Home extends Component {
     this.setState({apiStatus: apiStatusConstants.inProgress})
 
     const jwtToken = Cookies.get('jwt_token')
-    const homeApi = 'https://apis.ccbp.in/movies-app/trending-movies'
+    const homeApi = 'https://apis.ccbp.in/movies-app/originals'
     const options = {
       method: 'GET',
       headers: {
