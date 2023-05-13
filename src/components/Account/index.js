@@ -21,7 +21,7 @@ const Account = props => {
         <div className="membership-container">
           <p className="member-details">Member ship</p>
           <div className="user-details">
-            <p className="username">madhu7544@gmail.com</p>
+            <p className="username">devisriprasad@gmail.com</p>
             <p className="password">Password: **********</p>
           </div>
         </div>
