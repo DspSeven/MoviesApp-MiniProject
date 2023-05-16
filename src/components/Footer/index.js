@@ -18,7 +18,7 @@ const Footer = () => (
         <FaYoutube className="icon" />
       </button>
     </div>
-    <a href="https://www.linkedin.com/in/madhu-kumar-sahukari?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BJT3mjhvHRpWiI6Fmbbe9vA%3D%3D">
+    <a href="https://www.linkedin.com/in/devisriprasad-kallepalli/">
       <p className="contact-us"> Contact us</p>
     </a>
   </>
